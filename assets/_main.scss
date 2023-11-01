@@ -1,0 +1,17 @@
+.pizzaWindowArea{
+    max-width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 90px;
+    padding: 30px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+
+}

@@ -1,0 +1,43 @@
+header{
+    width: 100vw;
+    height: 90px;
+    background-color: $color-orange;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+
+    .logo{
+        img{
+            width: 125px;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+
+        li{
+
+
+            a{
+                color: $white-primary;
+                font-size: 1.3rem;
+                font-family: poppin-story;
+                transition:0.7s ease;
+                letter-spacing: 1.2px;
+            }
+
+            a:hover{
+                color: $color-blue;
+            }
+        }
+    }
+}

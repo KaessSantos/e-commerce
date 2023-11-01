@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizzaria</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="files/img/logoPizzaria.png" alt="Logo do site">
+        </div>
+        <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Trabalhe Conosco</a></li>
+            <li class="btn-header"><a href="#">Contato</a></li>
+        </ul>
+    </header>
+    <div class="modelPizza">
+        <div class="pizzaItem">
+            <div class="pizzaItemImg">
+                <img src="files/img/pizza.png" alt="foto da pizza">
+                <a href="#">+</a>
+            </div>
+            <div class="pizzaItem-price">R$--</div>
+            <div class="pizzaItem-name">--</div>
+            <div class="pizzaItem-description">--</div>
+        </div>
+    </div>
+
+    <div class="modalPizza">
+        <div class="modalImg">
+            <img src="files/img/pizza.png" alt="Foto da pizza">
+        </div>
+        <div class="modalInfo">
+            <h2 class="pizzaItem-name">Nome da pizza</h2>
+            <p class="pizzaItem-description infoModal">---</p>
+            <div class="modal-tamanho">
+                <p class="infoModal">TAMANHO</p>
+                <div class="modalTamanhoCaixas">
+                    <div class="pizzaInfo-size">PEQUENA <span>--</span></div>
+                    <div class="pizzaInfo-size">MÉDIO <span>--</span></div>
+                    <div class="pizzaInfo-size selected">GRANDE <span>--</span></div>
+                </div>
+            </div>
+            <div class="modalPrice">
+                <p class="infoModal">PREÇO</p>
+                <div class="price-qt">
+                    <div class="price">R$--</div>
+                    <div class="qtCaixa">
+                        <button class="btn-menos">-</button>
+                        <p class="qt">1</p>
+                        <button class="btn-mais">+</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modalBtn">
+                <button class="add-carrinho">Adicionar ao carrinho</button>
+                <button class="cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div class="pizzaWindowArea">
+      
+    </div>
+    <aside>
+        <div>
+            <h1>Suas Pizzas</h1>
+            <div class="carModel"></div>
+            <div class="subTotal">
+                <p class="infoModal">Subtotal</p>
+                <p class="priceSubt infoModal">R$--</p>
+            </div>
+            <div class="desconto">
+                <p class="infoModal">Desconto(-10%)</p>
+                <p class="priceDesconto infoModal">R$--</p>
+            </div>
+            <div class="total">
+                <p>Total</p>
+                <p class="priceTotal">R$--</p>
+            </div>
+            <button>Finalizar a compra</button>
+        </div>
+    </aside>
+
+
+
+
+
+
+    <script src="pizzaJson.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

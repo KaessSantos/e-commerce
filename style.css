@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@font-face {
+  font-family: poppins-ExtraLight;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../files/fonts/Poppins-ExtraLight.ttf");
+}
+@font-face {
+  font-family: poppins-Light;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../files/fonts/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: poppins-regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../files/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: poppins-semiBold;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../files/fonts/Poppins-SemiBold.ttf");
+}
+header {
+  width: 100vw;
+  height: 90px;
+  background-color: #FF9F1C;
+  padding: 5px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+header .logo img {
+  width: 125px;
+}
+header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+header ul li a {
+  color: #FDFFFC;
+  font-size: 1.3rem;
+  font-family: poppin-story;
+  transition: 0.7s ease;
+  letter-spacing: 1.2px;
+}
+header ul li a:hover {
+  color: #7A9E7E;
+}
+
+.pizzaWindowArea {
+  max-width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 90px;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.modalPizza {
+  background-color: #FAF8F8;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: none;
+  flex-direction: row;
+  padding: 10px;
+  position: fixed;
+  width: 1050px;
+  z-index: 99;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.modalPizza .modalImg {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.modalPizza .modalImg img {
+  max-width: 450px;
+}
+.modalPizza .modalInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 30px;
+}
+.modalPizza .modalInfo .modal-tamanho {
+  display: flex;
+  flex-direction: column;
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas {
+  display: flex;
+  flex-direction: row;
+  max-width: 350px;
+  margin-top: 5px;
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas div {
+  background-color: #7A9E7E;
+  padding: 8px 3px;
+  width: 100%;
+  color: #090C08;
+  font-family: poppins-semiBold;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas div:hover {
+  background-color: rgba(122, 158, 126, 0.6705882353);
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas .selected {
+  background-color: #FF9F1C;
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas :first-child {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas :last-child {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.modalPizza .modalPrice {
+  display: flex;
+  flex-direction: column;
+}
+.modalPizza .modalPrice div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 350px;
+  margin-top: 5px;
+}
+.modalPizza .modalPrice div .price {
+  font-size: 1.4rem;
+  font-family: poppins-semiBold;
+}
+.modalPizza .modalPrice div .qtCaixa {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2px 15px;
+  border-radius: 15px;
+  gap: 15px;
+}
+.modalPizza .modalPrice div .qtCaixa .btn-menos, .modalPizza .modalPrice div .qtCaixa .btn-mais {
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.modalPizza .modalPrice div .qtCaixa .qt {
+  font-size: 1.3rem;
+  font-family: poppins-semiBold;
+}
+.modalPizza .modalBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.modalPizza .modalBtn .add-carrinho {
+  background-color: #FF9F1C;
+  padding: 18px 25px;
+  border-radius: 20px;
+  margin-right: 15px;
+  font-size: 1.2rem;
+  color: #FDFFFC;
+  font-family: poppins-ExtraLight;
+}
+.modalPizza .modalBtn .cancel {
+  font-size: 1.1rem;
+  font-family: poppins-Light;
+}
+
+.infoModal {
+  color: #090C08;
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.modelPizza {
+  display: none;
+}
+
+.pizzaItem {
+  margin-top: 50px;
+  background-color: #FAF8F8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+}
+.pizzaItem .pizzaItem-price {
+  margin-top: 25px;
+  font-family: poppins-Light;
+  color: #090C08;
+  font-size: 1.1rem;
+}
+.pizzaItem .pizzaItem-name {
+  font-family: poppins-semiBold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.pizzaItem .pizzaItem-description {
+  font-family: poppins-Light;
+  color: #090C08;
+  text-align: center;
+}
+.pizzaItem .pizzaItemImg {
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.pizzaItem .pizzaItemImg a {
+  background-color: #7A9E7E;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.6rem;
+  color: #FDFFFC;
+  position: absolute;
+  bottom: -13px;
+}
+
+aside {
+  background-color: #FF9F1C;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 0px;
+}
+aside div {
+  padding: 20px;
+}
+aside .subTotal, aside .desconto {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #090C08;
+}
+aside .total {
+  font-family: poppins-semiBold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  padding: 10px 0;
+}
+aside button {
+  width: 100%;
+  height: 60px;
+  font-size: 1.4rem;
+  font-family: poppins-Light;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: transparent;
+}
+
+.carOpen {
+  width: 400px;
+}
+
+body {
+  font-family: poppins-Light;
+  background-color: #FDFFFC;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

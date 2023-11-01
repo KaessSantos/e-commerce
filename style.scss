@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+@import 'assets/fonts';
+@import 'assets/colors';
+@import 'assets/header';
+@import 'assets/main';
+@import 'assets/modal';
+@import 'assets/modelPizza';
+@import 'assets/carinho';
+
+body{
+    font-family: poppins-Light;
+    background-color: $white-primary;
+    width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    width: 100%;
+}
+
+
+

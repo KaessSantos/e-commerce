@@ -1,0 +1,144 @@
+.modalPizza{
+    background-color: $color-windowArea;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: none;
+    flex-direction: row;
+
+    padding: 10px;
+    position: fixed;
+    width: 1050px;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .modalImg{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        img{
+            max-width: 450px;
+        }
+    }
+
+    .modalInfo{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px;
+
+        .modal-tamanho{
+            display: flex;
+            flex-direction: column;
+
+            .modalTamanhoCaixas{
+                display: flex;
+                flex-direction: row;
+                max-width: 350px;
+                margin-top: 5px;
+
+                div{
+                    background-color: $color-blue;
+                    padding: 8px 3px;
+                    width: 100%;
+                    color: $black-primary;
+                    font-family: poppins-semiBold;
+                    cursor: pointer;
+                    transition:0.5s;
+                }
+
+                div:hover{
+                    background-color: #7a9e7eab;
+                    
+                }
+                .selected{
+                    background-color: $color-orange;  
+                }
+                :first-child{
+                    border-bottom-left-radius: 10px;
+                    border-top-left-radius: 10px;
+                    
+                }
+                
+                :last-child{
+                    border-bottom-right-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .modalPrice{
+        display: flex;
+        flex-direction: column;
+
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 350px;
+            margin-top: 5px;
+
+            .price{
+                font-size: 1.4rem;
+                font-family: poppins-semiBold;
+            }
+
+            .qtCaixa{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                padding: 2px 15px;
+                border-radius: 15px;
+                gap: 15px;
+
+                .btn-menos, .btn-mais{
+                    font-size: 1.3rem;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+
+                .qt{
+                    font-size: 1.3rem;
+                    font-family: poppins-semiBold;
+                }
+            }
+        }
+    }
+
+
+    .modalBtn{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .add-carrinho{
+            background-color: $color-orange;
+            padding: 18px 25px;
+            border-radius: 20px;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: $white-primary;
+            font-family:  poppins-ExtraLight;
+        }
+
+        .cancel{
+            font-size: 1.1rem;
+            font-family: poppins-Light;
+        }
+    }
+}
+
+.infoModal{
+    color: $black-primary;
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+
