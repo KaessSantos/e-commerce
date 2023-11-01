@@ -2,14 +2,14 @@ header{
     width: 100vw;
     height: 90px;
     background-color: $color-orange;
-    padding: 5px 15px;
+    padding: 5px 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 99;
+    z-index: 95;
 
     .logo{
         img{
