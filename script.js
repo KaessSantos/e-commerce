@@ -1,5 +1,9 @@
 "user strict"
 
+let cart = [];
+let modalQt = 1;
+let modalKey = 0;
+
 let c = (e)=>document.querySelector(e);
 let cs = (e)=>document.querySelectorAll(e);
 
@@ -17,11 +21,22 @@ pizzajson.map((item, index)=>{
         item.preventDefault();
         
         let key = item.target.closest('.pizzaItem').getAttribute('data-key');  // acesse o alvo(target) mais próximo (closest) do .pizzaItem e pega seu atributo.
-        
+        modalQt = 1;
+        modalKey = key;
+
         c('.modalImg img').src = pizzajson[key].img;
         c('.modalInfo h2').innerHTML = pizzajson[key].name;
         c('.modalInfo>p').innerHTML = pizzajson[key].description;
         c('.price').innerHTML = `R$ ${pizzajson[key].price.toFixed(2)}`;
+        c('.pizzaInfo-size.selected').classList.remove('selected');
+        cs('.pizzaInfo-size').forEach((sizes, sizeIndex)=>{
+            if(sizeIndex == 2){
+                sizes.classList.add('selected')
+            }
+            sizes.querySelector('span').innerHTML = pizzajson[key].size[sizeIndex];
+        });
+
+        c('.qt').innerHTML = modalQt;
 
         c('.modalPizza').style.opacity = 0;
         c('.modalPizza').style.display = 'flex';
@@ -45,4 +60,115 @@ function closeModal(){
         c('.modalPizza').style.display = 'none';
         c('.pizzaWindowArea').style.opacity = 1;
     },200)
+}
+
+c('.btn-menos').addEventListener('click', ()=>{
+    if(modalQt > 1){
+        modalQt--;
+        c('.qt').innerHTML = modalQt;
+    }
+});
+
+
+c('.btn-mais').addEventListener('click', ()=>{
+    modalQt++;
+    c('.qt').innerHTML = modalQt;
+});
+
+cs('.pizzaInfo-size').forEach((size, sizeIndex)=>{
+    size.addEventListener('click', (e)=>{
+        c('.pizzaInfo-size.selected').classList.remove('selected');
+        size.classList.add('selected');
+    });
+});
+
+
+c('.add-carrinho').addEventListener('click', (e)=>{
+    let size = c('.pizzaInfo-size.selected').getAttribute('data-key');
+
+    let indentifier = pizzajson[modalKey].id+'@'+size;
+
+    let key = cart.findIndex((item)=>{
+        return item.indentifier == indentifier
+    });
+
+    if(key > -1){
+        cart[key].Qt += modalQt;
+    }else{
+        cart.push({
+            indentifier,
+            id:pizzajson[modalKey].id,
+            size:size,
+            Qt:modalQt
+        });
+    }
+   
+    updateCard();
+    closeModal();
+});
+
+
+function updateCard(){
+    if(cart.length > 0){
+        c('aside').style.width = '400px';
+        c('header ul').style.marginRight = '430px';
+        c('.pizzaWindowArea').style.marginRight = '400px'
+        c('.carModel').innerHTML = '';
+
+
+        let desconto = 0;
+        let subTotal = 0;
+        let total = 0;
+
+        for(let i in cart){
+            let pizzaItem = pizzajson.find((item) => item.id == cart[i].id);
+            
+            subTotal += pizzaItem.price * cart[i].Qt;
+
+            let cartItem = c('.pizzaCart').cloneNode(true);
+
+            let pizzaSizeName;
+            switch(cart[i].size){
+                case 0:
+                    pizzaSizeName = 'P'
+                    break;
+                case 1:
+                    pizzaSizeName = 'M'
+                    break;
+                case 2:
+                    pizzaSizeName = 'G'
+                    break;
+            };
+            
+            let pizzaName = `${pizzaItem.name} (${pizzaSizeName})`;
+
+            
+
+            cartItem.querySelector('img').src = pizzaItem.img;
+            cartItem.querySelector('.cartItem-name').innerHTML = pizzaName;
+            cartItem.querySelector('.cart-qt').innerHTML = cart[i].Qt;
+
+            cartItem.querySelector('.cartQt-menos').addEventListener('click', ()=>{
+                if(cart[i].Qt > 1){
+                    cart[i].Qt--;
+                }else{
+                    cart.splice(i, 1);
+                }
+                updateCard()
+            });
+
+            cartItem.querySelector('.cartQt-mais').addEventListener('click', ()=>{
+                cart[i].Qt++;
+                updateCard()
+            });
+
+
+            c('.carModel').append(cartItem)
+        }
+        
+    }else{
+        c('aside').style.width = '0px';
+        c('header ul').style.marginRight = '0px';
+        c('.pizzaWindowArea').style.marginRight = '0px'
+    }
 }

@@ -51,6 +51,7 @@ header ul {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  transition: 0.5s;
 }
 header ul li a {
   color: #FDFFFC;
@@ -121,6 +122,11 @@ header ul li a:hover {
   max-width: 350px;
   margin-top: 5px;
 }
+.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas .pizzaInfo-size span {
+  color: #090C08;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
 .modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas div {
   background-color: #7A9E7E;
   padding: 8px 3px;
@@ -129,9 +135,6 @@ header ul li a:hover {
   font-family: poppins-semiBold;
   cursor: pointer;
   transition: 0.5s;
-}
-.modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas div:hover {
-  background-color: rgba(122, 158, 126, 0.6705882353);
 }
 .modalPizza .modalInfo .modal-tamanho .modalTamanhoCaixas .selected {
   background-color: #FF9F1C;
@@ -258,11 +261,16 @@ header ul li a:hover {
 
 aside {
   background-color: #FF9F1C;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   height: 100vh;
   width: 0px;
+  z-index: 98;
+  transition: 0.5s;
+}
+aside h1 {
+  font-family: poppins-semiBold;
 }
 aside div {
   padding: 20px;
@@ -293,8 +301,47 @@ aside button {
   background-color: transparent;
 }
 
-.carOpen {
-  width: 400px;
+.pizzaCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  margin: 25px 0;
+}
+.pizzaCart .pizzaCart-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  padding: 0;
+  gap: 5px;
+}
+.pizzaCart .pizzaCart-info span {
+  font-family: poppins-regular;
+  text-transform: uppercase;
+}
+.pizzaCart .pizzaCart-info img {
+  width: 50px;
+}
+.pizzaCart .pizzaCart-qt {
+  background-color: #FDFFFC;
+  width: 90px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.carModel {
+  padding: 0;
 }
 
 body {
