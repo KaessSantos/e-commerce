@@ -339,6 +339,9 @@ aside button {
   gap: 17px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.pizzaCart .pizzaCart-qt .cartQt-menos, .pizzaCart .pizzaCart-qt .cartQt-mais {
+  cursor: pointer;
+}
 
 .carModel {
   padding: 0;

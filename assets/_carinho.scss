@@ -90,6 +90,10 @@ aside{
         align-items: center;
         gap: 17px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        .cartQt-menos, .cartQt-mais{
+            cursor: pointer;
+        }
     }
     
 }

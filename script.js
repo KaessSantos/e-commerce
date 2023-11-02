@@ -84,7 +84,7 @@ cs('.pizzaInfo-size').forEach((size, sizeIndex)=>{
 
 
 c('.add-carrinho').addEventListener('click', (e)=>{
-    let size = c('.pizzaInfo-size.selected').getAttribute('data-key');
+    let size = parseInt(c('.pizzaInfo-size.selected').getAttribute('data-key'));
 
     let indentifier = pizzajson[modalKey].id+'@'+size;
 
@@ -98,7 +98,7 @@ c('.add-carrinho').addEventListener('click', (e)=>{
         cart.push({
             indentifier,
             id:pizzajson[modalKey].id,
-            size:size,
+            size,
             Qt:modalQt
         });
     }
@@ -125,7 +125,7 @@ function updateCard(){
             
             subTotal += pizzaItem.price * cart[i].Qt;
 
-            let cartItem = c('.pizzaCart').cloneNode(true);
+            let cartItem = c('.modelPizza .pizzaCart').cloneNode(true);
 
             let pizzaSizeName;
             switch(cart[i].size){
@@ -148,7 +148,8 @@ function updateCard(){
             cartItem.querySelector('.cartItem-name').innerHTML = pizzaName;
             cartItem.querySelector('.cart-qt').innerHTML = cart[i].Qt;
 
-            cartItem.querySelector('.cartQt-menos').addEventListener('click', ()=>{
+            cartItem.querySelector('.cartQt-menos').addEventListener('click', (e)=>{
+                e.preventDefault()
                 if(cart[i].Qt > 1){
                     cart[i].Qt--;
                 }else{
@@ -157,7 +158,8 @@ function updateCard(){
                 updateCard()
             });
 
-            cartItem.querySelector('.cartQt-mais').addEventListener('click', ()=>{
+            cartItem.querySelector('.cartQt-mais').addEventListener('click', (e)=>{
+                e.preventDefault()
                 cart[i].Qt++;
                 updateCard()
             });
@@ -165,10 +167,17 @@ function updateCard(){
 
             c('.carModel').append(cartItem)
         }
+
+        desconto = subTotal * 0.1;
+        total = subTotal - desconto;
+
+        c('.priceSubt').innerHTML = `R$ ${subTotal.toFixed(2)}`;
+        c('.priceDesconto').innerHTML = `R$ ${desconto.toFixed(2)}`;
+        c('.priceTotal').innerHTML = `R$ ${total.toFixed(2)}`;
         
     }else{
         c('aside').style.width = '0px';
         c('header ul').style.marginRight = '0px';
-        c('.pizzaWindowArea').style.marginRight = '0px'
+        c('.pizzaWindowArea').style.marginRight = 'auto'
     }
 }
