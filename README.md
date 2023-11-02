@@ -1,8 +1,7 @@
 # E-comerce Pizzaria
  <h1 align="center">Refiz esse projeto com CSS SASS</h1>
  <h2 align="center">Programador Front-End</h2>
- #<a href="https://kaesssantos.github.io/e-commerce/">Projeto</a>
-
+ 
  <p>
     <img alt="projeto portifólio" src="files/img/img-github/img-1.png" width="100%">
  </p>
