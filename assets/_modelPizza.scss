@@ -56,3 +56,13 @@
         }
     }
 }
+
+
+@media screen and (max-width: 700px) {
+    .pizzaItem-name{
+        font-family: poppins-semiBold;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
