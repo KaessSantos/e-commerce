@@ -90,8 +90,17 @@ header .menuCar span {
 }
 
 @media screen and (max-width: 700px) {
+  header {
+    padding: 5px 0px;
+  }
   header .menu {
     display: flex;
+    position: relative;
+    right: 20px;
+    font-size: 1.7rem;
+  }
+  header .logo img {
+    width: 120px;
   }
   header ul {
     display: none;
@@ -130,6 +139,8 @@ header .menuCar span {
   }
   header .fa-solid.fa-xmark {
     display: none;
+    animation-name: alternateRotateVolte;
+    animation-duration: 1s;
   }
   header .menuCar {
     display: flex;
@@ -141,6 +152,14 @@ header .menuCar span {
   }
   to {
     transform: rotate(180deg);
+  }
+}
+@keyframes alternateRotateVolte {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 .pizzaWindowArea {

@@ -209,6 +209,7 @@ c('.fa-solid.fa-bars').addEventListener('click', ()=>{
 c('.fa-solid.fa-xmark').addEventListener('click', ()=>{
     c('.fa-solid.fa-xmark').style.display = 'none'
     c('.fa-solid.fa-bars').style.display = 'flex'
+    
     const menu = c('ul')
     menu.style.display = 'none'
 });
