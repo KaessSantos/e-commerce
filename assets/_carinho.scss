@@ -13,6 +13,7 @@ aside{
 
     div{
         padding: 20px;
+        position: relative;
     }
 
     .subTotal, .desconto{
@@ -43,6 +44,16 @@ aside{
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         background-color: transparent;
         
+    }
+
+    .carVolte{
+        font-family: poppins-semiBold;
+        text-align: center;
+        font-size: 1.3em;
+        color: $color-blue;
+        padding: 10px;
+        right: 50%;
+        display: none;
     }
 
 }
@@ -101,4 +112,34 @@ aside{
 
 .carModel{
     padding: 0;
+}
+
+
+
+@media screen and (max-width: 700px){
+    aside{
+        background-color: $color-orange;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 0px;
+        z-index: 98;
+        transition: 0.5s;
+    }
+
+    aside>div{
+        position: relative;
+        .carVolte{
+            display: inline-block;
+            font-family: poppins-semiBold;
+            font-size: 1.3em;
+            color: $color-blue;
+            padding: 10px;
+            right: 0;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+    }
 }

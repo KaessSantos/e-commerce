@@ -42,7 +42,7 @@ header {
   top: 0;
   z-index: 95;
 }
-header .fa-solid {
+header .fa-solid.fa-bars {
   display: none;
 }
 header .fa-solid.fa-xmark {
@@ -72,6 +72,22 @@ header ul li a {
 header ul li a:hover {
   color: #7A9E7E;
 }
+header .menuCar {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #090C08;
+  background-color: #FDFFFC;
+  padding: 7px 25px;
+  border-radius: 7px;
+  font-size: 1.3em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+}
+header .menuCar span {
+  padding-left: 10px;
+}
 
 @media screen and (max-width: 700px) {
   header .menu {
@@ -83,8 +99,8 @@ header ul li a:hover {
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 47px;
-    top: 30px;
+    right: 10px;
+    top: 65px;
     gap: 40px;
     padding: 15px;
     border-radius: 20px;
@@ -101,7 +117,7 @@ header ul li a:hover {
   header ul li a:hover {
     color: #7A9E7E;
   }
-  header .fa-solid {
+  header .fa-solid.fa-bars {
     display: flex;
     position: fixed;
     right: 20px;
@@ -114,6 +130,9 @@ header ul li a:hover {
   }
   header .fa-solid.fa-xmark {
     display: none;
+  }
+  header .menuCar {
+    display: flex;
   }
 }
 @keyframes alternateRotate {
@@ -467,6 +486,7 @@ aside h1 {
 }
 aside div {
   padding: 20px;
+  position: relative;
 }
 aside .subTotal, aside .desconto {
   display: flex;
@@ -492,6 +512,15 @@ aside button {
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: transparent;
+}
+aside .carVolte {
+  font-family: poppins-semiBold;
+  text-align: center;
+  font-size: 1.3em;
+  color: #7A9E7E;
+  padding: 10px;
+  right: 50%;
+  display: none;
 }
 
 .pizzaCart {
@@ -540,6 +569,32 @@ aside button {
   padding: 0;
 }
 
+@media screen and (max-width: 700px) {
+  aside {
+    background-color: #FF9F1C;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0px;
+    z-index: 98;
+    transition: 0.5s;
+  }
+  aside > div {
+    position: relative;
+  }
+  aside > div .carVolte {
+    display: inline-block;
+    font-family: poppins-semiBold;
+    font-size: 1.3em;
+    color: #7A9E7E;
+    padding: 10px;
+    right: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+}
 body {
   font-family: poppins-Light;
   background-color: #FDFFFC;

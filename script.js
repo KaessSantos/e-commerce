@@ -107,8 +107,23 @@ c('.add-carrinho').addEventListener('click', (e)=>{
     closeModal();
 });
 
+c('.add-carrinho').addEventListener('click', ()=>{
+    c('aside').style.width = '100%';
+});
+
+c('.carVolte').addEventListener('click', ()=>{
+    c('aside').style.width = '0px';
+    c('header ul').style.marginRight = '0px';
+    c('.pizzaWindowArea').style.marginRight = '0px'
+});
+
+c('.fa-solid.fa-cart-shopping').addEventListener('click', ()=>{
+    updateCard();
+});
+
 
 function updateCard(){
+    c('.menuCar span').innerHTML = cart.length;
     if(cart.length > 0){
         c('aside').style.width = '400px';
         c('header ul').style.marginRight = '430px';
